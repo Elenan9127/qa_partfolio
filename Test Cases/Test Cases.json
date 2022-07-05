@@ -1,21 +1,48 @@
 {
   "TestCase_id":"1",
-  "Title":"The user should return to the Home page after clicking on the Sofa icon",
+  "Title":"The user returns to the Home page by clicking the Sofa icon",
+  "Precondition":"Given user's logged in",
   "Steps":
   {
-    "1":"Given the user on any page",
-    "2":"When the user clicks the Sofa Icon"
+    "1":"When the user on any page",
+    "2":"And the user clicks the Sofa Icon"
   },
-  "Expected result":"Then the Home Page should be open"
+  "Expected result":"Then the Home Page is opened"
 },
 
 {
   "TestCase_id":"2",
-  "Title":"Only items with reduced prices should be in the On Sale category",
+  "Module":"Sale category",
+  "Title":"Only items with reduced prices are displayed",
+  "Precondition":"Given user's logged in",
   "Steps":
   {
-    "1":"Given the user at the Home Page ",
-    "2":"User clicks On Sale category"
+    "1":"When the user at the Home Page ",
+    "2":"And user clicks On Sale category"
   },
-  "Expected result":"Then items with reduced prices should be displayed in the On Sale category"
+  "Expected result":"Then items with reduced prices are displayed"
 },
+
+{
+  "TestCase_id":"3",
+  "Title":"The user's redirected to the Cart Page by clicking the Cart icon",
+  "Precondition":"Given user's at the Home Page",
+  "Steps":
+  {
+    "1":"When the user is at the Home Page",
+    "2":"And the user clicks the Cart icon"
+  },
+  "Expected result":"Then the user's redirected to the Cart Page"
+},
+
+{
+  "TestCase_id":"4",
+  "Title":"The green dot appears on the Cart icon after adding the first item to the Cart",
+  "Precondition":"Given the Cart is empty",
+  "Steps":
+  {
+    "1":"When the user at any Product Page",
+    "2":"And the user adds any items to the Cart"
+  },
+  "Expected result":"Then the green dot appears next to the Cart icon"
+}
