@@ -26,7 +26,7 @@
 {
   "TestCase_id":"3",
   "Title":"The user's redirected to the Cart Page by clicking the Cart icon",
-  "Precondition":"Given user's at the Home Page",
+  "Precondition":"Given the user's at the Home Page",
   "Steps":
   {
     "1":"When the user is at the Home Page",
@@ -46,3 +46,4 @@
   },
   "Expected result":"Then the green dot appears next to the Cart icon"
 }
+
