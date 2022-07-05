@@ -2,7 +2,7 @@
   "Bug_id":"1",
   "Severity":"Major",
   "Module":"Home Page",
-  "Summary":"The search isn't case sensitive",
+  "Summary":"The search isn't case-sensitive",
   "Precondition":"User's logged in",
   "Steps to reproduce":
   {
@@ -57,8 +57,7 @@
     "4":"Go to the Cart",
     "5":"Observe the Total Price"
   },
-  "Expected result":"The Total Price is 400$",
-  "Actual result":"The Total Price is 500$"
+  "Expected result":"The Total Price is $400",
+  "Actual result":"The Total Price is $500"
 }
-
 
