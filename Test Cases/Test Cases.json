@@ -10,9 +10,6 @@
 },
 
 {
-  //add the second Test Case
-}
-{
   "TestCase_id":"2",
   "Title":"Only items with reduced prices should be in the On Sale category",
   "Steps":
@@ -22,7 +19,3 @@
   },
   "Expected result":"Then items with reduced prices should be displayed in the On Sale category"
 },
-
-{
-  //add the third Test Case
-}
