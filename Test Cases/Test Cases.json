@@ -6,7 +6,7 @@
     {
       "1": "When the user on any page",
       "2": "And the user clicks the Sofa Icon"
-  },
+    },
   "Expected result": "Then the Home Page is opened"
 },
 
