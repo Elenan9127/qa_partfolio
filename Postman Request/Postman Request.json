@@ -1,0 +1,366 @@
+{
+	"info": {
+		"_postman_id": "5c293cca-7561-47be-a1ad-1e95b5a15642",
+		"name": "Project with Jilia",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21241899"
+	},
+	"item": [
+		{
+			"name": "Add project",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const body = pm.response.json();",
+							"",
+							"pm.environment.set(\"projectId\", body.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followOriginalHttpMethod": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"A\",\n\t\"announcement\": \"This is the description for the project\",\n\t\"show_announcement\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/{{api_vers}}/add_project",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{api_vers}}",
+						"add_project"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Project",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followOriginalHttpMethod": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"B\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/{{api_vers}}/update_project/{{projectId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{api_vers}}",
+						"update_project",
+						"{{projectId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Suite",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const body = pm.response.json();",
+							"",
+							"pm.environment.set(\"SuiteId\", body.id);",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followOriginalHttpMethod": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Suite 1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/{{api_vers}}/add_suite/{{projectId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{api_vers}}",
+						"add_suite",
+						"{{projectId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Section",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const body = pm.response.json();",
+							"",
+							"pm.environment.set(\"SectionId\", body.id);",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followOriginalHttpMethod": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"suite_id\": {{SuiteId}},\n\t\"name\": \"Section 1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/{{api_vers}}/add_section/{{projectId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{api_vers}}",
+						"add_section",
+						"{{projectId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Test Case with one step",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followOriginalHttpMethod": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"This is a test case with simple step\",\n  \"type_id\": 1,\n  \"priority_id\": 3,\n  \"estimate\": \"3m\",\n  \"refs\": \"RF-1, RF-2\",\n  \"custom_steps\" : \"Step 1\",\n  \"custom_expected\" : \"Result 1\"\n \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/{{api_vers}}/add_case/{{SectionId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{api_vers}}",
+						"add_case",
+						"{{SectionId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Test Case with Multiply Steps",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followOriginalHttpMethod": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"This is a test case with miltiply steps\",\n  \"type_id\": 1,\n  \"template_id\": 2,\n  \"priority_id\": 3,\n  \"estimate\": \"3m\",\n  \"refs\": \"RF-1, RF-2\",\n  \"custom_steps_separated\": [\n    {\n      \"content\": \"Step 1\",\n      \"expected\": \"Expected Result 1\"\n    },\n    {\n      \"content\": \"Step 2\",\n      \"expected\": \"Expected Result 2\"\n\n} \n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/{{api_vers}}/add_case/{{SectionId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{api_vers}}",
+						"add_case",
+						"{{SectionId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Project",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followOriginalHttpMethod": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/{{api_vers}}/delete_project/{{projectId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{api_vers}}",
+						"delete_project",
+						"{{projectId}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "RlgxMu0m.zAC/ibA/ME4",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "elenan.199127@gmail.com",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
