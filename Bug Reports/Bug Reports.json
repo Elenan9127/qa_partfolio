@@ -1,63 +1,68 @@
 {
-  "Bug_id":"1",
-  "Severity":"Major",
-  "Module":"Home Page",
-  "Summary":"The search isn't case-sensitive",
-  "Precondition":"User's logged in",
+  "Bug id": "1",
+  "Severity": "Major",
+  "Enviroment": "Test",
+  "Module": "Home Page",
+  "Summary": "The search isn't case-sensitive",
+  "Precondition": "User's logged in",
   "Steps to reproduce":
-  {
-    "1":"Open the Home Page",
-    "2":"Type 'SOFA' to the Search Field",
-    "3":"Press Enter"
-  },
-  "Expected result":"All results with the word 'sofa' are shown",
-  "Actual result":"The page with the message 'No Result' is opened"
+    {
+      "1": "Open the Home Page",
+      "2": "Type 'SOFA' to the Search Field",
+      "3": "Press Enter"
+    },
+  "Actual result": "The page with the message 'No Result' is opened",
+  "Expected result": "All results with the word 'sofa' are shown"
+
 },
 
 {
-  "Bug_id":"2",
-  "Severity":"Major",
-  "Module":"Product Details Page",
-  "Summary":"The Home page opens instead Category Page after clicking it",
-  "Precondition":"User's at any Product Details Page",
+  "Bug id": "2",
+  "Severity": "Major",
+  "Enviroment": "Test",
+  "Module": "Product Details Page",
+  "Summary": "The Home page opens instead Category Page after clicking it",
+  "Precondition": "User's at any Product Details Page",
   "Steps to reproduce":
-  {
-    "1":"Click the category 'Living room' in the Navigation Bar"
-  },
-  "Expected result":"The 'Living room' Category page's opened",
-  "Actual result":"The Home Page is opened"
+    {
+      "1": "Click the category 'Living room' in the Navigation Bar"
+    },
+  "Actual result": "The Home Page is opened",
+  "Expected result": "The 'Living room' Category page's opened"
 },
 
 {
-  "Bug_id":"3",
-  "Severity":"Major",
-  "Module":"Cart Page",
-  "Summary":"The '-' and '+' of the Quantity Picker Control are mixed up",
-  "Precondition":"Any item's added to the Cart",
+  "Bug id": "3",
+  "Severity": "Medium",
+  "Enviroment": "Test",
+  "Module": "Cart Page",
+  "Summary": "The Quantity Picker Control is mixed up",
+  "Precondition": "Any item's added to the Cart",
   "Steps to reproduce":
-  {
-    "1":"Go to the Cart",
-    "2":"Observe the Quantity Control"
-  },
-  "Expected result":"The Quantity Picker Control is displayed like '-' and '+'",
-  "Actual result":"The Quantity Picker Control is displayed like '+' and '-'"
+    {
+      "1": "Go to the Cart",
+      "2": "Observe the Quantity Control Picker"
+    },
+  "Actual result": "The Quantity Picker Control is displayed like '+' and '-'",
+  "Expected result": "The Quantity Picker Control is displayed like '-' and '+'"
 },
 
 {
-  "Bug_id":"4",
-  "Severity":"Critical",
-  "Module":"Cart Page",
-  "Summary":"The Total Price is displayed as full price for an item with a reduced price",
-  "Precondition":"User's logged in",
+  "Bug id": "4",
+  "Severity": "Critical",
+  "Enviroment": "Test",
+  "Module": "Cart Page",
+  "Summary": "The Total Price is calculated without discount",
+  "Precondition": "User's logged in",
   "Steps to reproduce":
-  {
-    "1":"Open the 'On Sale' category",
-    "2":"Click on the 'Otis Malt Sofa'",
-    "3":"Add to the Cart",
-    "4":"Go to the Cart",
-    "5":"Observe the Total Price"
-  },
-  "Expected result":"The Total Price is $400",
-  "Actual result":"The Total Price is $500"
+    {
+      "1": "Open the 'On Sale' category",
+      "2": "Select any item and add to the cart (e.g. 'Otis Malt Sofa')",
+      "3": "Add to the Cart",
+      "4": "Go to the Cart",
+      "5": "Observe the Total Price"
+    },
+  "Actual result": "The Total Price is calculated without discount",
+  "Expected result": "The Total Price is calculated with discount"
 }
 
